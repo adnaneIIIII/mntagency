@@ -11,6 +11,7 @@ import {
   Users,
   Ticket,
   LogOut,
+  HomeIcon,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
@@ -18,7 +19,7 @@ import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 export default function AdminLinks() {
   const pathname = usePathname();
   const tabs = [
-    { id: 0, icon: SlidersVertical, name: "Home", link: "/admin" },
+    { id: 0, icon: HomeIcon, name: "Home", link: "/admin" },
     { id: 1, icon: Archive, name: "Products", link: "/admin/products" },
     { id: 2, icon: Layers3, name: "Categories", link: "/admin/categories" },
     { id: 3, icon: ShoppingCart, name: "Orders", link: "/admin/orders" },
@@ -27,7 +28,7 @@ export default function AdminLinks() {
   ];
 
   return (
-    <div className="mt-6 p-4 space-y-2 ">
+    <div className="p-4 space-y-2 ">
       
       {tabs.map((t) => (
         <Link

@@ -12,8 +12,8 @@ import CharacterData from "./components/CharacterData";
 
 export default function page() {
   return (
-    <>
-      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+    <div className="p-4">
+      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4 p-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle>Total Revenue</CardTitle>
@@ -61,23 +61,23 @@ export default function page() {
           </CardContent>
         </Card>
       </div>
-      <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3 mt-10">
-        <Card className="xl:col-span-2">
+      <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3 pr-4 pl-4">
+        <Card className="xl:col-span-2 ">
           <CardHeader>
             <CardTitle>Transactions </CardTitle>
             <CardDescription>View all transactions</CardDescription>
           </CardHeader>
           <CardContent>
             <CharacterData
-              // data={[
-              //   { date: "Mar-10", totalSales: 10 },
-              //   { date: "Mar-15", totalSales: 120 },
-              //   { date: "Mar-20", totalSales: 150 },
-              //   { date: "Mar-25", totalSales: 130 },
-              //   { date: "Mar-30", totalSales: 100 },
-              //   { date: "Apr-01", totalSales: 190 },
-              //   { date: "Apr-05", totalSales: 40 },
-              // ]}
+            // data={[
+            //   { date: "Mar-10", totalSales: 10 },
+            //   { date: "Mar-15", totalSales: 120 },
+            //   { date: "Mar-20", totalSales: 150 },
+            //   { date: "Mar-25", totalSales: 130 },
+            //   { date: "Mar-30", totalSales: 100 },
+            //   { date: "Apr-01", totalSales: 190 },
+            //   { date: "Apr-05", totalSales: 40 },
+            // ]}
             />
           </CardContent>
         </Card>
@@ -137,6 +137,6 @@ export default function page() {
           </CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
 }

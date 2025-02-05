@@ -19,14 +19,15 @@ export default function RootLayout({
       <div className="bg-[#1a1a1a] pl-4 pr-4 p-2">
         <AdminNavBar />
       </div>
-      <div className="flex md:h-dvh">
+      <div className=" flex min-h-screen">
         <div className="w-[15%] bg-[#ededed]">
           <AdminLinks />
         </div>
-        <div className="w-[95%] bg-[#f1f1f1] p-8">
-          <h1 className="text-[#4a4a4a] capitalize font-semibold text-2xl p-2">
+        <div className="w-[95%] bg-[#f1f1f1] ">
+          {/* <h1 className="text-[#4a4a4a] capitalize font-semibold text-2xl pl-8 pt-4">
             {pageName}
-          </h1>
+          </h1> */}
+
           {children}
         </div>
       </div>
