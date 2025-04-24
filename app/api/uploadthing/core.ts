@@ -20,12 +20,12 @@ export const ourFileRouter = {
     },
   })
     // Set permissions and file types for this FileRoute
-    .middleware(async ({ req }) => {
+    .middleware(async ({}) => {
       // This code runs on your server before upload
       const { getUser } = getKindeServerSession();
       const user = await getUser();
       if (!user || user.email !== "adnane.elotmani@usmba.ac.ma")
-       throw new UploadThingError("Unauthorized");
+        throw new UploadThingError("Unauthorized");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.id };
@@ -51,7 +51,7 @@ export const ourFileRouter = {
     },
   })
     // Set permissions and file types for this FileRoute
-    .middleware(async ({ req }) => {
+    .middleware(async ({}) => {
       // This code runs on your server before upload
       // const user = await auth(req);
       const { getUser } = getKindeServerSession();

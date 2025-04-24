@@ -24,9 +24,9 @@ export default function RootLayout({
           <AdminLinks />
         </div>
         <div className="w-[95%] bg-[#f1f1f1] ">
-          {/* <h1 className="text-[#4a4a4a] capitalize font-semibold text-2xl pl-8 pt-4">
+          <h1 className="text-[#4a4a4a] capitalize font-semibold text-2xl pl-8 pt-4">
             {pageName}
-          </h1> */}
+          </h1>
 
           {children}
         </div>

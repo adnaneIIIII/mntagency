@@ -1,6 +1,5 @@
 "use client";
 import {
-  CartesianGrid,
   Line,
   LineChart,
   ResponsiveContainer,
@@ -17,12 +16,6 @@ const data = [
   { Value: 20, date: "Mar-12" },
   { Value: 12, date: "Mar-16" },
 ];
-type charttype = {
-  data: {
-    date: string;
-    totalSales: number;
-  }[];
-};
 
 function CharacterData() {
   return (
@@ -32,7 +25,6 @@ function CharacterData() {
         <YAxis />
         <Tooltip />
         <Line type="monotone" dataKey="Value" stroke="#000" />
-
       </LineChart>
     </ResponsiveContainer>
   );

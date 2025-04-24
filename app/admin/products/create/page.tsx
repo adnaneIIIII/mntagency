@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, XIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -24,9 +24,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
 import { SubmiteBotton } from "../../components/SubmiteBotton";
-import { UploadButton, UploadDropzone } from "@/app/lib/uploadthing";
+import { UploadDropzone } from "@/app/lib/uploadthing";
 
-export default function page() {
+export default function CreateProductPage() {
+  const [images, setImages] = useState<string[]>([]);
+
+  const handleDelete = (index: number) => {
+    setImages(images.filter((_, i) => i !== index));
+  };
   return (
     <div className="p-4">
       <div className="flex items-center gap-4 ">
@@ -68,73 +73,59 @@ export default function page() {
                     <Label>Image</Label>
                     <input type="hidden" />
 
-                    <UploadDropzone
-                            endpoint="imageUploader"
-                            onClientUploadComplete={(res) => {
-                              // setImages(res.map((r) => r.url));
-                            }}
-                            onUploadError={(error: Error) => {
-                              alert("Something went wrong");
-                            }}
-                          />
+                    {/* <UploadDropzone
+                      endpoint="imageUploader"
+                      onClientUploadComplete={(res) => {
+                        // setImages(res.map((r) => r.url));
+                      }}
+                      onUploadError={(error: Error) => {
+                        alert("Something went wrong");
+                      }}
+                    /> */}
 
-                    {/* {images.length > 0 ? (
-                          <div className="flex gap-5">
-                            {images.map((image, index) => (
-                              <div key={index} className="relative w-[100px] h-[100px]">
-                                <Image
-                                  height={100}
-                                  width={100}
-                                  src={image}
-                                  alt={"product image"}
-                                  className="w-full h-full object-cover rounded-lg border"
-                                />
-                                <button
-                                  onClick={() => handleDelete(index)}
-                                  type="button"
-                                  className="absolute -top-1 -right-1 p-1 rounded-lg bg-red-500 text-white">
-                                  <XIcon className="w-4 h-4" />
-                                </button>
-                              </div>
-                            ))}
+                    {images.length > 0 ? (
+                      <div className="flex gap-5">
+                        {images.map((image, index) => (
+                          <div
+                            key={index}
+                            className="relative w-[100px] h-[100px]"
+                          >
+                            <Image
+                              height={100}
+                              width={100}
+                              src={image}
+                              alt={"product image"}
+                              className="w-full h-full object-cover rounded-lg border"
+                            />
+                            <button
+                              onClick={() => handleDelete(index)}
+                              type="button"
+                              className="absolute -top-1 -right-1 p-1 rounded-lg bg-red-500 text-white"
+                            >
+                              <XIcon className="w-4 h-4" />
+                            </button>
                           </div>
-                        ) : (
-                          <UploadDropzone
-                            endpoint="imageUploader"
-                            onClientUploadComplete={(res) => {
-                              setImages(res.map((r) => r.url));
-                            }}
-                            onUploadError={(error: Error) => {
-                              alert("Something went wrong");
-                            }}
-                          />
-                        )} */}
+                        ))}
+                      </div>
+                    ) : (
+                      <UploadDropzone
+                        endpoint="imageUploader"
+                        onClientUploadComplete={(res) => {
+                          setImages(res.map((r) => r.url));
+                        }}
+                        onUploadError={() => {
+                          alert("Something went wrong");
+                        }}
+                      />
+                    )}
                     {/* <p className="text-red-500">{fields.images.errors}</p> */}
                   </div>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <Label>Category</Label>
-                  <Select>
-                    <SelectTrigger className="text-left py-2 pl-4">
-                      <SelectValue placeholder="Select Category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {/* {categories &&
-                              categories.map((cat: any, index: number) => (
-                                <SelectItem key={index} value={cat.name}>
-                                  {cat.name}
-                                </SelectItem>
-                              ))} */}
-                    </SelectContent>
-                  </Select>
-                  {/* <p className="text-red-500">{fields.category.errors}</p> */}
                 </div>
               </CardContent>
             </Card>
             <Card className="mb-4">
               <CardContent className="pt-4 ">
-              <CardTitle className="pt-2 pb-4">Pricing</CardTitle>
+                <CardTitle className="pt-2 pb-4">Pricing</CardTitle>
 
                 <div className=" md:flex md:items-center gap-6 ">
                   <div className=" md:w-[40%]">

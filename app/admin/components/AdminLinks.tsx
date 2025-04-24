@@ -4,12 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import {
-  SlidersVertical,
   Archive,
-  Layers3,
-  ShoppingCart,
-  Users,
-  Ticket,
+  // Layers3,
+  // ShoppingCart,
+  // Users,
+  // Ticket,
   LogOut,
   HomeIcon,
 } from "lucide-react";
@@ -21,15 +20,13 @@ export default function AdminLinks() {
   const tabs = [
     { id: 0, icon: HomeIcon, name: "Home", link: "/admin" },
     { id: 1, icon: Archive, name: "Products", link: "/admin/products" },
-    { id: 2, icon: Layers3, name: "Categories", link: "/admin/categories" },
-    { id: 3, icon: ShoppingCart, name: "Orders", link: "/admin/orders" },
-    { id: 4, icon: Users, name: "Customers", link: "/admin/customers" },
-    { id: 5, icon: Ticket, name: "Coupons", link: "/admin/coupons" },
+    // { id: 3, icon: ShoppingCart, name: "Orders", link: "/admin/orders" },
+    // { id: 4, icon: Users, name: "Customers", link: "/admin/customers" },
+    // { id: 5, icon: Ticket, name: "Coupons", link: "/admin/coupons" },
   ];
 
   return (
     <div className="p-4 space-y-2 ">
-      
       {tabs.map((t) => (
         <Link
           key={t.id}
@@ -39,7 +36,8 @@ export default function AdminLinks() {
               ? "font-semibold flex bg-slate-100"
               : " hover:text-foreground ",
             "flex gap-2 px-2 rounded-lg text-[#4a4a4a] text-sm py-3 items-center"
-          )}>
+          )}
+        >
           <t.icon
             className={cn(
               t.link === pathname
