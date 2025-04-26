@@ -24,7 +24,7 @@ function CharacterData() {
         <XAxis dataKey={"date"} className="" />
         <YAxis />
         <Tooltip />
-        <Line type="monotone" dataKey="Value" stroke="#000" />
+        <Line type="monotone" dataKey="Value" stroke="#ffffff" />
       </LineChart>
     </ResponsiveContainer>
   );

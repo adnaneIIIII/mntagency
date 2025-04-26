@@ -9,11 +9,10 @@ import {
   // ShoppingCart,
   // Users,
   // Ticket,
-  LogOut,
+  
   HomeIcon,
 } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
-import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+
 
 export default function AdminLinks() {
   const pathname = usePathname();
@@ -26,36 +25,28 @@ export default function AdminLinks() {
   ];
 
   return (
-    <div className="p-4 space-y-2 ">
-      {tabs.map((t) => (
+    <div
+    className="hidden relative md:block min-w-[80px] max-w-[280px] h-screen overflow-hidden w-full bg-primary/5 dark:bg-secondary/30
+   dark:text-foreground text-muted-foreground border-r-2 border-separate">
+  
+    <div className="p-4 font-semibold">Menu</div>
+    <div className="flex flex-col p-2">
+      {tabs.map((route) => (
         <Link
-          key={t.id}
-          href={t.link}
+          key={route.link}
+          href={route.link}
           className={cn(
-            t.link === pathname
-              ? "font-semibold flex bg-slate-100"
-              : " hover:text-foreground ",
-            "flex gap-2 px-2 rounded-lg text-[#4a4a4a] text-sm py-3 items-center"
-          )}
-        >
-          <t.icon
-            className={cn(
-              t.link === pathname
-                ? " text-[#000000] flex "
-                : "hover:text-foreground font-normal",
-              "text-sm text-[#4a4a4a]"
-            )}
-          />
-          <span className="hidden  lg:block">{t.name}</span>
+            route.link === pathname
+              ? "gap-2 !justify-start hover:bg-accent text-white hover:text-gray-100"
+              : "gap-2 !justify-start text-gray-600 hover:bg-primary/90",
+
+            "flex gap-2 px-2 rounded-lg text-sm py-3 items-center"
+          )}>
+          <route.icon size={20} />
+          {route.name}
         </Link>
       ))}
-      <Separator />
-      <LogoutLink className="flex gap-2 px-2 rounded-lg  py-3 items-center text-muted-foreground hover:text-foreground">
-        <LogOut className="text-[#4a4a4a]" />
-        <span className="hidden lg:block text-[#4a4a4a]  font-normal ">
-          Logout
-        </span>
-      </LogoutLink>
     </div>
+  </div>
   );
 }

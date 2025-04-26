@@ -1,4 +1,3 @@
-"use client";
 import {
   Card,
   CardContent,
@@ -10,9 +9,11 @@ import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
 import { DollarSign, PartyPopper, ShoppingBag, Users } from "lucide-react";
 import CharacterData from "./components/CharacterData";
 
-export default function page() {
+
+export default async function page() {
   return (
     <div className="p-4">
+        
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4 p-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
@@ -87,7 +88,7 @@ export default function page() {
           </CardHeader>
           <CardContent className="flex flex-col gap-8">
             <div className="flex items-center gap-4">
-              <Avatar className="bg-gray-200 rounded-[25px] p-2 hidden sm:flex items-center justify-center h-9 w-9">
+              <Avatar className=" rounded-[25px] p-2 hidden sm:flex items-center justify-center h-9 w-9">
                 <AvatarFallback>AE</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">
@@ -99,7 +100,7 @@ export default function page() {
               <p className="ml-auto font-medium">+24.94</p>
             </div>
             <div className="flex items-center gap-4">
-              <Avatar className="bg-gray-200 rounded-[25px] p-2 hidden sm:flex items-center justify-center h-9 w-9">
+              <Avatar className=" rounded-[25px] p-2 hidden sm:flex items-center justify-center h-9 w-9">
                 <AvatarFallback>AE</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">
@@ -111,7 +112,7 @@ export default function page() {
               <p className="ml-auto font-medium">+24.94</p>
             </div>
             <div className="flex items-center gap-4">
-              <Avatar className="bg-gray-200 rounded-[25px] p-2 hidden sm:flex items-center justify-center h-9 w-9">
+              <Avatar className=" rounded-[25px] p-2 hidden sm:flex items-center justify-center h-9 w-9">
                 <AvatarFallback>AE</AvatarFallback>
               </Avatar>
               <div className="grid gap-1">

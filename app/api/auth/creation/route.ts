@@ -6,7 +6,7 @@ export async function GET() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user === null || !user.id) {
+  if (!user || user === null || user.email !== "adnane.elotmani@usmba.ac.ma") {
     throw new Error("User not found");
   }
   let dbUser = await prisma.user.findUnique({
@@ -26,5 +26,5 @@ export async function GET() {
       },
     });
   }
-  return NextResponse.redirect("http://localhost:3000/");
+  return NextResponse.redirect("http://localhost:3000/admin");
 }

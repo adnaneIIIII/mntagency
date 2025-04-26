@@ -11,7 +11,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -22,4 +22,48 @@ model User {
   profileImage  String
 
   createdAt     DateTime @default(now())
+}
+
+
+model Products {
+  id               String        @id @default(uuid())
+  name             String
+  description      String
+  shortdescription String
+  status           ProductStatus
+  price            Float
+  compareAtPrice   Float
+  images           String[]
+  isFeatured       Boolean       @default(false)
+  createdAt        DateTime      @default(now())
+
+}
+
+enum ProductStatus {
+  draft
+  published
+  archived
+}
+
+model Purchase {
+  id        String   @id @default(uuid())
+  firstname String
+  lastname  String
+  email     String   @unique
+  phone     String
+  country   Countrys
+  ppname    String
+  pprice    Float
+
+  purchasedAt DateTime @default(now())
+
+}
+
+enum Countrys {
+  United_States
+  Canada
+  United_Kingdom
+  Australia
+  Philippines
+  Other
 }

@@ -1,3 +1,4 @@
+import { ProductAction } from "@/app/actions/Productaction";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -6,17 +7,25 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import {
   Table,
+  TableBody,
+  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { PlusCircle } from "lucide-react";
+import {  PlusCircle } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function page() {
+
+export default async function page() {
+
+  const products = await ProductAction();
+  console.log(products);
   return (
     <>
       <div className="p-4">
@@ -42,13 +51,38 @@ export default function page() {
                   <TableHead>Status</TableHead>
                   <TableHead>Price</TableHead>
                   <TableHead>Date</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
+              <TableBody>
+                {products.map((item) => (
+                  <TableRow key={item.id}>
+                    <TableCell>
+                      <Image
+                        src={item.images[0]}
+                        width={100}
+                        height={100}
+                        alt="rounded-md object-cover h-16 w-16"
+                      />
+                    </TableCell>
+                    <TableCell>{item.name}</TableCell>
+                    <TableCell>{item.status}</TableCell>
+                    <TableCell>{item.price}</TableCell>
+                    <TableCell>{item.createdAt.toLocaleDateString()}</TableCell>
+                    <TableCell className="text-right">
+                      {/* <Delet productid={item.id} name={item.name} /> */}
+                      {/* <div className="flex h-5 items-center space-x-4 text-sm justify-end">
+                        <Delet productid={item.id} />
+                        <Separator orientation="vertical" />
+                        <Edite data={item} />
+                      </div> */}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
             </Table>
           </CardContent>
         </Card>
-        
       </div>
       {/* <div className="pt-[36rem]">  </div> */}
     </>
