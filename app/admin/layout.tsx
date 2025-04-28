@@ -3,7 +3,6 @@ import React from "react";
 import AdminNavBar from "./components/AdminNavBar";
 import AdminLinks from "./components/AdminLinks";
 import { usePathname } from "next/navigation";
-import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 export default function RootLayout({
   children,
@@ -20,7 +19,7 @@ export default function RootLayout({
       <div className="bg-slate-700 pl-4 pr-4 p-2 bg-light ">
         <AdminNavBar />
       </div>
-      <LoginLink>login</LoginLink>
+
 
       <div className=" flex min-h-screen ">
         <div className="w-[15%] border-r-1">

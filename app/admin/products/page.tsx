@@ -16,14 +16,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {  PlusCircle } from "lucide-react";
+import { PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import Delet from "./_components/delet";
+import { Separator } from "@/components/ui/separator";
 
 export default async function page() {
-
   const products = await ProductAction();
   console.log(products);
   return (
@@ -71,11 +71,12 @@ export default async function page() {
                     <TableCell>{item.createdAt.toLocaleDateString()}</TableCell>
                     <TableCell className="text-right">
                       {/* <Delet productid={item.id} name={item.name} /> */}
-                      {/* <div className="flex h-5 items-center space-x-4 text-sm justify-end">
-                        <Delet productid={item.id} />
-                        <Separator orientation="vertical" />
-                        <Edite data={item} />
-                      </div> */}
+                      <div className="flex h-5 items-center space-x-4 text-sm justify-end">
+                      <Separator orientation="vertical" />
+                        <Delet productid={item.id} name={item.name} />
+                        
+                        {/* <Edite data={item} /> */}
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))}

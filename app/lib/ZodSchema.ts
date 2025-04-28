@@ -45,3 +45,14 @@ export const Purchase = z.object({
   ppname: z.string().min(1, "First name is required"),
   pprice: z.number(),
 });
+
+
+export const contact = z.object({
+  firstname: z.string().min(1, "First name is required"),
+  lastname: z.string().min(1, ""),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(9, "Phone number is required"),
+  company: z.string(),
+  message: z.string(),
+
+});

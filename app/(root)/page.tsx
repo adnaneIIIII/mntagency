@@ -1,6 +1,5 @@
 import Contact from "@/components/contact";
 import Features from "@/components/features-3";
-import FooterSection from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import Pricing from "@/components/pricing";
 import Testimonials from "@/components/testimonials";
@@ -14,8 +13,6 @@ export default function page() {
       <Pricing />
       <Testimonials />
       <Contact />
-      {/* Footer */}
-      <FooterSection />
     </>
   );
 }

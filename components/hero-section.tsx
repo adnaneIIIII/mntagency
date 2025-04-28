@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { AnimatedGroup } from "./ui/animated-group";
 import { TextEffect } from "./ui/text-effect";
-import Navbar from "./navbar";
 
 const transitionVariants = {
   item: {
@@ -29,7 +28,6 @@ const transitionVariants = {
 export default function HeroSection() {
   return (
     <>
-      <Navbar />
       <main className="overflow-hidden ">
         <div
           aria-hidden
@@ -40,42 +38,15 @@ export default function HeroSection() {
           <div className="h-320 -translate-y-87.5 absolute left-0 top-0 w-60 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
         </div>
         <section className="h-screen">
+          <Image
+            src="/bg2.jpg" // <-- put your background image path here
+            alt="Background"
+            quality={100}
+            fill
+            className="object-cover object-bottom -z-10"
+            priority
+          />
           <div className="relative pt-24 md:pt-36">
-            <AnimatedGroup
-              variants={{
-                container: {
-                  visible: {
-                    transition: {
-                      delayChildren: 1,
-                    },
-                  },
-                },
-                item: {
-                  hidden: {
-                    opacity: 0,
-                    y: 20,
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      type: "spring",
-                      bounce: 0.3,
-                      duration: 2,
-                    },
-                  },
-                },
-              }}
-              className="absolute inset-0 -z-20"
-            >
-              <Image
-                src={"/bg2.jpg"}
-                alt="background"
-                className="absolute inset-x-0 top-56 -z-20 hidden lg:top-0 dark:block"
-                width="1320"
-                height="1080"
-              />
-            </AnimatedGroup>
             <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
             <div className="mx-auto max-w-7xl px-6">
               <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
@@ -85,7 +56,7 @@ export default function HeroSection() {
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
                     <span className="text-foreground text-sm">
-                    Introducing MNTagency for your Business
+                      Introducing MNTagency for your Business
                     </span>
                     <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
@@ -101,7 +72,6 @@ export default function HeroSection() {
                     </div>
                   </Link>
                 </AnimatedGroup>
-
                 <TextEffect
                   preset="fade-in-blur"
                   speedSegment={0.3}
@@ -118,8 +88,9 @@ export default function HeroSection() {
                   as="p"
                   className="mx-auto mt-8 max-w-2xl text-balance text-lg"
                 >
-                  We help small businesses establish and grow their digital presence with custom websites, social media
-                  management, and brand identity design.
+                  We help small businesses establish and grow their digital
+                  presence with custom websites, social media management, and
+                  brand identity design.
                 </TextEffect>
 
                 <AnimatedGroup
@@ -145,7 +116,7 @@ export default function HeroSection() {
                       size="lg"
                       className="rounded-xl px-5 text-base"
                     >
-                      <Link href="#link">
+                      <Link href="#contact">
                         <span className="text-nowrap">Start Building</span>
                       </Link>
                     </Button>
@@ -157,7 +128,7 @@ export default function HeroSection() {
                     variant="ghost"
                     className="h-10.5 rounded-xl px-5"
                   >
-                    <Link href="#link">
+                    <Link href="#contact">
                       <span className="text-nowrap">Request a demo</span>
                     </Link>
                   </Button>

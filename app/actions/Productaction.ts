@@ -12,12 +12,30 @@ export async function ProductAction() {
   if (!user || user.email !== "adnane.elotmani@usmba.ac.ma") {
     redirect("/admin");
   }
-
-  const existingProducts = await prisma.products.findMany({
+  const allProducts = await prisma.products.findMany({
     orderBy: { id: "asc" }, // Replace "id" with the correct field name
   });
 
-  return existingProducts; // Return the fetched products
+  return allProducts; // Return the fetched products
+}
+export async function ProductPricing() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (!user || user.email !== "adnane.elotmani@usmba.ac.ma") {
+    redirect("/admin");
+  }
+
+  const allProducts = await prisma.products.findMany({
+    orderBy: { id: "asc" },
+    select : {
+      price: true,
+      name: true,
+      id : true
+    } // Replace "id" with the correct field name
+  });
+
+  return allProducts; // Return the fetched products
 }
 
 export async function ProductHome() {
@@ -101,4 +119,17 @@ export async function createProduct(prevState: unknown, formData: FormData) {
   }
 }
 
+export async function deleteProduct(productId: string) {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
 
+  if (!user || user.email !== "adnane.elotmani@usmba.ac.ma") {
+    redirect("/");
+  }
+  await prisma.products.delete({
+    where: {
+      id: productId,
+    },
+  });
+  redirect("/admin/products");
+}

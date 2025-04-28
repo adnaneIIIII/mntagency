@@ -9,26 +9,24 @@ function Navbar() {
       <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-xl">
         <div className="flex items-start">
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src={"/wiholo.png"}
-              alt="logo"
-              width={120}
-              height={100}
-            />
+            <Image src={"/mntagency.png"} alt="logo" width={120} height={100} />
           </Link>
         </div>
         <nav className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <ul className="flex items-center justify-center gap-8">
-            <Link href="#" className="hover:text-foreground/80 text-sm">
+            <Link href="#contact" className="hover:text-foreground/80 text-sm">
               Pricing
             </Link>
-            <Link href="#" className="hover:text-foreground/80 text-sm">
+            <Link href="/about" className="hover:text-foreground/80 text-sm">
               About
             </Link>
-            <Link href="#" className="hover:text-foreground/80 text-sm">
+            <Link href="#features" className="hover:text-foreground/80 text-sm">
               Features
             </Link>
-            <Link href="#" className="hover:text-foreground/80 text-sm">
+            <Link href="#contact" className="hover:text-foreground/80 text-sm">
+              Contact us
+            </Link>
+            <Link href="/blog" className="hover:text-foreground/80 text-sm">
               Blog
             </Link>
           </ul>
