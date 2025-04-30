@@ -12,6 +12,7 @@ import { ContactUs } from "@/app/actions/Useraction";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { contact } from "@/app/lib/ZodSchema";
+import { Button } from "./ui/button";
 
 export default function Contact() {
   const [lastResult, action] = useActionState(ContactUs, undefined);
@@ -180,8 +181,7 @@ export default function Contact() {
                     className="min-h-[120px] border-zinc-900 text-white"
                   />
                 </div>
-
-                <button>click</button>
+                <Button>Submit</Button>
               </form>
             </div>
           </div>
